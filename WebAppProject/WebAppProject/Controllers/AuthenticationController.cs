@@ -35,7 +35,7 @@ namespace WebAppProject.Controllers
 
 
         [HttpPost("Register")]
-        public async Task<IActionResult> Register(RegisterUser registerUser, string role)
+        public async Task<IActionResult> Register(RegisterUser registerUser, string role="User")
         {
             var checkUser = await _userManager.FindByEmailAsync(registerUser.Email); // verificare existenta cont la acea adresa de email
             if (checkUser != null)

@@ -12,4 +12,7 @@ export class AuthService {
   login(loginUser:any){
     return this.http.post<any>(`${this.baseUrl}Login`,loginUser);
   }
+  signup(registerUser:any){
+    return this.http.post<any>(`${this.baseUrl}Register?role=User`,registerUser);
+  }
 }

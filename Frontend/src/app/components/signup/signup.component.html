@@ -1,1 +1,23 @@
-<p>signup works!</p>
+<div class="data_section">
+    <div class="app_info">
+        <h1>Welcome to our task management app!</h1>
+        <h1>To unlock the full potential of our task management app, we invite you to create an account. By doing so, you'll gain access to a seamless experience of organizing and managing your tasks. Let's get started – create your account today and take control of your productivity journey!</h1>
+
+    </div>
+    
+    <div class="user_info">
+        <h1>CREATE YOUR ACCOUNT</h1>
+        <form [formGroup]="signupForm">
+            <input formControlName="Username" type="text" placeholder="Username" required=""/>
+            <br/>
+            <input formControlName="Email" type="email" placeholder="Email" required=""/>
+            <br/>
+            <input formControlName="Password" type="password" placeholder="Password" required=""/>
+            <br/>
+            <button (click)="onSignup()" type="submit">Signup</button>
+            <br/>
+            <br/>
+            <a href="/login">You already have account?</a>
+        </form>
+    </div>
+</div> 
