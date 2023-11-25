@@ -1,0 +1,22 @@
+<div class="data_section">
+    <div class="app_info">
+        <h1>Welcome to our task management app!</h1>
+        <h1>We're thrilled to have you on board. To get started, please log in to your account using your credentials. Your tasks are waiting for you to explore and manage them efficiently. Good luck!</h1>
+
+    </div>
+    <div class="user_info">
+        <h1>LOGIN</h1>
+        <form [formGroup]="loginForm">
+            <input formControlName="Email" type="email" placeholder="Email" required=""/>
+            <br/>
+            <input formControlName="Password" type="password" placeholder="Password" required=""/>
+            <br/>
+            <button (click)="onLogin()" type="submit">Login</button>
+            <br/>
+            <a href="/signup">Forgot password?</a>
+            <br/>
+            <br/>
+            <a href="/signup">You don't have account?</a>
+        </form>
+    </div>
+</div> 
