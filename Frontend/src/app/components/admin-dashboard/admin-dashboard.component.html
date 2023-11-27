@@ -1,0 +1,28 @@
+<div class="navbar">
+    <div class="navcomponent">
+        <img (click)="home()" src="assets\home.png" alt="">
+    </div>
+    <div class="navcomponent">
+        <img (click)="logout()" src="assets\logout.png" alt="">
+    </div>
+</div>
+
+<div class="data_section">
+    <div class="user_info">
+        <h1>CREATE ACCOUNTS</h1>
+        <form [formGroup]="createUserForm">
+            <input formControlName="Username" type="text" placeholder="Username" required=""/>
+            <br/>
+            <input formControlName="Email" type="email" placeholder="Email" required=""/>
+            <br/>
+            <input formControlName="Password" type="password" placeholder="Password" required=""/>
+            <br/>
+            <select name="roles" id="roles">
+                <option value="User">User</option>
+                <option value="Admin">Admin</option>
+            </select>
+            <br/>
+            <button (click)="onCreate()" type="submit">Create</button>
+        </form>
+    </div>
+</div>
