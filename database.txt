@@ -1,0 +1,3 @@
+proiect(id, name, description, creation date, user list, task list)
+task(id, name, description, creation date, end date, priority)
+notificari

@@ -1,1 +1,54 @@
-<p>user-dashboard works!</p>
+<div class="navbar">
+    <div class="navcomponent">
+        <img (click)="home()" src="assets\home.png" alt="">
+    </div>
+    <div class="navcomponent">
+        <img (click)="notification()" src="assets\notification.png" alt="">
+    </div>
+    <div class="navcomponent">
+        <img (click)="logout()" src="assets\logout.png" alt="">
+    </div>
+</div>
+
+<div class="user_menu">
+    <div class="user_option">
+        <div class="option_image">
+            <img (click)="notification()" src="assets\project.png" alt="">
+        </div>
+        <div class="option_info">
+            <h1>Create project</h1>
+        </div>
+    </div>
+    <div class="user_option">
+        <div class="option_image">
+            <img (click)="notification()" src="assets\add_task.png" alt="">
+        </div>
+        <div class="option_info">
+            <h1>Create task</h1>
+        </div>
+    </div>
+    <div class="user_option">
+        <div class="option_image">
+            <img (click)="notification()" src="assets\task.png" alt="">
+        </div>
+        <div class="option_info">
+            <h1>View tasks</h1>
+        </div>
+    </div>
+    <div class="user_option">
+        <div class="option_image">
+            <img (click)="notification()" src="assets\add_user.png" alt="" style="margin-left: 57px;">
+        </div>
+        <div class="option_info">
+            <h1>Asign members</h1>
+        </div>
+    </div>
+    <div class="user_option">
+        <div class="option_image">
+            <img (click)="notification()" src="assets\notification.png" alt="">
+        </div>
+        <div class="option_info">
+            <h1>View tasks</h1>
+        </div>
+    </div>
+</div>

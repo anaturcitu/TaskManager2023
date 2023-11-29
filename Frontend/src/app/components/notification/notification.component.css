@@ -1,0 +1,91 @@
+.navbar {
+    background-color: lightgreen;
+    opacity: 0.9;
+    height: 70px;
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 7px;
+}
+
+.navcomponent img {
+    height: 50px;
+    width: 50px;
+    margin-top: 7px;
+    cursor: pointer;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.notifications {
+    width: 75%;
+    min-height: 300px;
+    border-radius: 10px;
+    background-color: white;
+    border: 2px solid lightgreen;
+    margin: auto;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.notifications p {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.notification {
+    width: 95%;
+    margin: auto;
+    background-color: lightgreen;
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    height: 45px;
+    margin-bottom: 10px;
+}
+
+.from {
+    width: 20%;
+}
+
+.message {
+    width: 50%;
+}
+
+.date {
+    width: 20%;
+}
+
+.remove {
+    width: 10%;
+}
+
+.notification h1 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 7px;
+}
+
+.notification h2 {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 7px;
+}
+
+.notification button {
+    background-color: transparent;
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+    border: none;
+    margin-left: 35px;
+}

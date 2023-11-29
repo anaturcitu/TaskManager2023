@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit{
           console.log("expiration:");
           console.log(res.expiration);
           this.toast.success({detail:"Success", summary:"Welcome!", duration:4000});
-          // this.router.navigate(['user-dashboard']);
-          this.router.navigate(['admin-dashboard']);
+          this.router.navigate(['user-dashboard']);
+          // this.router.navigate(['admin-dashboard']);
         },
         error:(err)=>{
           console.log(err?.error.message);

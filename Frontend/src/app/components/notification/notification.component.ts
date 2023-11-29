@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-dashboard',
-  templateUrl: './user-dashboard.component.html',
-  styleUrls: ['./user-dashboard.component.css']
+  selector: 'app-notification',
+  templateUrl: './notification.component.html',
+  styleUrls: ['./notification.component.css']
 })
-export class UserDashboardComponent {
+export class NotificationComponent {
   constructor(private router: Router){
 
   }

@@ -12,6 +12,7 @@ import {NgToastModule } from 'ng-angular-popup';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
     LoginComponent,
     SignupComponent,
     UserDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
