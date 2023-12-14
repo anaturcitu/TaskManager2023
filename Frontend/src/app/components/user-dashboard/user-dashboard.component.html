@@ -11,9 +11,9 @@
 </div>
 
 <div class="user_menu">
-    <div class="user_option">
+    <div class="user_option" (click)="create_project()">
         <div class="option_image">
-            <img (click)="notification()" src="assets\project.png" alt="">
+            <img src="assets\project.png" alt="">
         </div>
         <div class="option_info">
             <h1>Create project</h1>
@@ -35,9 +35,9 @@
             <h1>View tasks</h1>
         </div>
     </div>
-    <div class="user_option">
+    <div class="user_option" (click)="assign_member()">
         <div class="option_image">
-            <img (click)="notification()" src="assets\add_user.png" alt="" style="margin-left: 57px;">
+            <img src="assets\add_user.png" alt="" style="margin-left: 57px;">
         </div>
         <div class="option_info">
             <h1>Asign members</h1>

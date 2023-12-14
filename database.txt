@@ -1,3 +1,18 @@
 proiect(id, name, description, creation date, user list, task list)
 task(id, name, description, creation date, end date, priority)
 notificari
+
+
+
+
+
+user(1,ana)
+user(2,alina)
+
+proiect(10)
+proiect(11)
+proiect(12)
+
+UserProject (1,10)
+UserProject (1,11)
+UserProject (2,12)

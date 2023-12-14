@@ -22,4 +22,12 @@ export class UserDashboardComponent {
   notification() {
     this.router.navigate(['notification']);
   }
+
+  create_project() {
+    this.router.navigate(['create-project']);
+  }
+
+  assign_member() {
+    this.router.navigate(['assign-member']);
+  }
 }

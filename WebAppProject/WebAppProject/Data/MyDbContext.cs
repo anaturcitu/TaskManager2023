@@ -1,11 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebAppProject.Models.Entities;
 
 namespace WebAppProject.Data
 {
     public class MyDbContext: IdentityDbContext <IdentityUser>
     {
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<ProjectTask> ProjectTasks { get; set; }
+        public DbSet<UserProject> UserProjects { get; set; }
+
         public MyDbContext(DbContextOptions<MyDbContext> dbContextOptions): base(dbContextOptions) { // constructor
 
         }

@@ -13,6 +13,8 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NotificationComponent } from './components/notification/notification.component';
+import { CreateProjectComponent } from './components/create-project/create-project.component';
+import { AssignMemberComponent } from './components/assign-member/assign-member.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { NotificationComponent } from './components/notification/notification.co
     SignupComponent,
     UserDashboardComponent,
     AdminDashboardComponent,
-    NotificationComponent
+    NotificationComponent,
+    CreateProjectComponent,
+    AssignMemberComponent
   ],
   imports: [
     BrowserModule,

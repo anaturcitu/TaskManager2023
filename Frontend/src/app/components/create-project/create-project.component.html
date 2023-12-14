@@ -1,0 +1,24 @@
+<div class="navbar">
+    <div class="navcomponent">
+        <img (click)="home()" src="assets\home.png" alt="">
+    </div>
+    <div class="navcomponent">
+        <img (click)="notification()" src="assets\notification.png" alt="">
+    </div>
+    <div class="navcomponent">
+        <img (click)="logout()" src="assets\logout.png" alt="">
+    </div>
+</div>
+
+<div class="create_project">
+    <h1>Enter project information</h1>
+    <form [formGroup]="createProjectForm">
+        <input formControlName="Name" type="text" placeholder="Project name" required=""/>
+        <br/>
+        <textarea formControlName="Description" type="text" placeholder="Project description" required=""></textarea>
+        <br/>
+        <button (click)="onCreateProject()" type="submit">Create project</button>
+        <br/>
+        <br/>
+    </form>
+</div>

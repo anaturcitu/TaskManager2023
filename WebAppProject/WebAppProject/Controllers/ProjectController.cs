@@ -1,0 +1,46 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using WebAppProject.Models.Entities;
+using WebAppProject.Services;
+
+namespace WebAppProject.Controllers
+{
+    [Authorize(Roles = "User")]
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProjectController : ControllerBase
+    {
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IProjectService _projectService;
+
+        public ProjectController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, IProjectService projectService)
+        {
+            _userManager = userManager;
+            _roleManager = roleManager;
+            _projectService = projectService;
+        }
+        [HttpPost("CreateProject")]
+        public async Task<IActionResult> CreateProject(Project p)
+        {
+            var email = User.FindFirst(ClaimTypes.Email)?.Value; // gaseste emailul userului care este autentificat
+            var user = await _userManager.FindByEmailAsync(email); // gaseste userul care are acel email
+            
+            p.Id = Guid.NewGuid();
+            p.Creation_date = DateTime.Now.ToString();
+            _projectService.CreateNewProject(p);
+
+            UserProject userProject = new UserProject();
+            userProject.Project = p;
+            userProject.User = user;
+            userProject.ProjectId = p.Id;
+            userProject.UserId = user.Id;
+
+            _projectService.AddUserToProject(userProject);
+            return Ok(p);
+        }
+    }
+}
