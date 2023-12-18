@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-notification',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent {
-  constructor(private router: Router){
+  constructor(private router: Router, private auth: AuthService){
 
   }
 
@@ -17,6 +18,7 @@ export class NotificationComponent {
 
   logout() {
     this.router.navigate(['login']);
+    this.auth.signOut();
   }
 
   notification() {

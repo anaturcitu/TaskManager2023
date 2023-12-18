@@ -8,17 +8,22 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { NotificationComponent } from './components/notification/notification.component';
 import { CreateProjectComponent } from './components/create-project/create-project.component';
 import { AssignMemberComponent } from './components/assign-member/assign-member.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '',redirectTo:'/home',pathMatch:'full'},
   {path: 'home',component: HomeComponent},
   {path:'login', component: LoginComponent},
   {path:'signup', component: SignupComponent},
-  {path:'user-dashboard', component: UserDashboardComponent},
-  {path:'admin-dashboard', component: AdminDashboardComponent},
+  {path:'user-dashboard', component: UserDashboardComponent, canActivate:[AuthGuard]},
+  {path:'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard]},
   {path:'notification', component: NotificationComponent},
   {path:'create-project', component: CreateProjectComponent},
-  {path:'assign-member', component: AssignMemberComponent}
+  {path:'assign-member', component: AssignMemberComponent},
+  {path:'about', component: AboutComponent},
+  {path:'contact', component: ContactComponent}
 ];
 
 @NgModule({

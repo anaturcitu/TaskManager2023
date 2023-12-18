@@ -1,6 +1,7 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-assign-member',
@@ -8,7 +9,7 @@ import { NgToastService } from 'ng-angular-popup';
   styleUrls: ['./assign-member.component.css']
 })
 export class AssignMemberComponent {
-  constructor(private toast: NgToastService, private router: Router, private renderer: Renderer2, private el: ElementRef){
+  constructor(private toast: NgToastService, private router: Router, private renderer: Renderer2, private el: ElementRef, private auth: AuthService){
   }
 
   ngOnInit(){
@@ -36,6 +37,7 @@ export class AssignMemberComponent {
 
   logout() {
     this.router.navigate(['login']);
+    this.auth.signOut();
   }
 
   notification() {

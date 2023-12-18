@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit{
         next:(res) => {
           console.log("token:");
           console.log(res.token);
+          this.authService.storeToken(res.token);
           console.log("expiration:");
           console.log(res.expiration);
           this.toast.success({detail:"Success", summary:"Welcome!", duration:4000});

@@ -36,6 +36,7 @@ export class CreateProjectComponent {
 
   logout() {
     this.router.navigate(['login']);
+    this.authService.signOut();
   }
 
   notification() {

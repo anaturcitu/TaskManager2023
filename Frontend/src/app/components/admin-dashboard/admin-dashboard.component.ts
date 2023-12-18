@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class AdminDashboardComponent {
   createUserForm!:FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router){
+  constructor(private fb: FormBuilder, private router: Router, private auth: AuthService){
 
   }
 
@@ -28,6 +29,7 @@ export class AdminDashboardComponent {
 
   logout() {
     this.router.navigate(['login']);
+    this.auth.signOut();
   }
 
   onCreate() {

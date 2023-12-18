@@ -21,7 +21,7 @@
     </div>
     <div class="user_option">
         <div class="option_image">
-            <img (click)="notification()" src="assets\add_task.png" alt="">
+            <img (click)="notification()" src="assets\add_task.png" alt="" style="margin-left: 65px;">
         </div>
         <div class="option_info">
             <h1>Create task</h1>
@@ -37,18 +37,35 @@
     </div>
     <div class="user_option" (click)="assign_member()">
         <div class="option_image">
-            <img src="assets\add_user.png" alt="" style="margin-left: 57px;">
+            <img src="assets\add_user.png" alt="" style="margin-left: 70px;">
         </div>
         <div class="option_info">
-            <h1>Asign members</h1>
+            <h1>Assign members</h1>
         </div>
     </div>
-    <div class="user_option">
-        <div class="option_image">
-            <img (click)="notification()" src="assets\notification.png" alt="">
-        </div>
-        <div class="option_info">
-            <h1>View tasks</h1>
-        </div>
-    </div>
+</div>
+
+<div class="my_projects">
+
+    <table>
+        <tr>
+          <th>Project</th>
+          <th>Creation date</th>
+          <th>Number of members</th>
+          <th>Number of tasks</th>
+        </tr>
+        <tr>
+            <td>Implement task management aplication</td>
+            <td>12/16/2023</td>
+            <td>5</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Create new aplication for users</td>
+            <td>12/16/2023</td>
+            <td>10</td>
+            <td>7</td>
+        </tr>
+    </table>
+
 </div>

@@ -15,6 +15,8 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NotificationComponent } from './components/notification/notification.component';
 import { CreateProjectComponent } from './components/create-project/create-project.component';
 import { AssignMemberComponent } from './components/assign-member/assign-member.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AssignMemberComponent } from './components/assign-member/assign-member.
     AdminDashboardComponent,
     NotificationComponent,
     CreateProjectComponent,
-    AssignMemberComponent
+    AssignMemberComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
