@@ -17,12 +17,28 @@
             <br/>
             <input formControlName="Password" type="password" placeholder="Password" required=""/>
             <br/>
-            <select name="roles" id="roles">
+            <select formControlName="Role" name="roles" id="roles">
                 <option value="User">User</option>
                 <option value="Admin">Admin</option>
             </select>
             <br/>
-            <button (click)="onCreate()" type="submit">Create</button>
+            <button (click)="onSignup()" type="submit">Create</button>
         </form>
     </div>
+</div>
+
+<div class="allUsers">
+        
+    <table>
+        <tr>
+          <th>Id</th>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.userName}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+    </table>
 </div>

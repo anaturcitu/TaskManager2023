@@ -185,7 +185,9 @@ namespace WebAppProject.Controllers
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(JwtToken),
-                    expiration = JwtToken.ValidTo
+                    expiration = JwtToken.ValidTo,
+                    role = userRoles[0],
+                    user_id  = user.Id
                 });
             }
 

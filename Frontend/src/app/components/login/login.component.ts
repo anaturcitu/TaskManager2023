@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-login',
@@ -23,18 +24,24 @@ export class LoginComponent implements OnInit{
   }
   onLogin(){
     if(this.loginForm.valid){
-      console.log(this.loginForm.value);
       this.authService.login(this.loginForm.value)
       .subscribe({
         next:(res) => {
-          console.log("token:");
-          console.log(res.token);
+          const helper = new JwtHelperService();
+
+          const decodedToken = helper.decodeToken(res.token);
+
           this.authService.storeToken(res.token);
-          console.log("expiration:");
-          console.log(res.expiration);
+          this.authService.storeUserId(res.user_id);
           this.toast.success({detail:"Success", summary:"Welcome!", duration:4000});
-          this.router.navigate(['user-dashboard']);
-          // this.router.navigate(['admin-dashboard']);
+          if (res.role=='User')
+          {
+            this.router.navigate(['user-dashboard']);
+          }
+          if (res.role=='Admin')
+          {
+            this.router.navigate(['admin-dashboard']);
+          }
         },
         error:(err)=>{
           console.log(err?.error.message);

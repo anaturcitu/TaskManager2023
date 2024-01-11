@@ -36,7 +36,7 @@ namespace WebAppProject.Controllers
         }
         // GetUsers (Metoda care ne ia toti utilizatorii din baza de date)
         [HttpGet("GetUsers")]
-        public async Task<IActionResult> GetUser()
+        public async Task<IActionResult> GetUsers()
         {
             var users = await _userManager.Users.ToListAsync();
             return Ok(users);

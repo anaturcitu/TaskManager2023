@@ -88,3 +88,28 @@ button:hover{
     background-color: white;
     color: forestgreen;
 }
+
+table{
+    width: 1000px;
+    height: auto;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-left: 3px solid lightgreen;
+    border-right: 3px solid lightgreen;
+}
+th{
+    padding: 25px;
+    border-top: 3px solid lightgreen;
+    border-bottom: 3px solid lightgreen;
+    text-align: center;
+    font-size: 17px;
+    background-color: lightgreen;
+
+}
+td{
+    padding: 25px;
+    border-bottom: 3px solid lightgreen;
+    text-align: center;
+    font-size: 17px;
+}

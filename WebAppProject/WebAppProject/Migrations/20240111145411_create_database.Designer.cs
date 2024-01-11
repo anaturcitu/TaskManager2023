@@ -12,8 +12,8 @@ using WebAppProject.Data;
 namespace WebAppProject.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20231211162729_Project tabels add")]
-    partial class Projecttabelsadd
+    [Migration("20240111145411_create_database")]
+    partial class create_database
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,14 +54,14 @@ namespace WebAppProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c96d5305-b414-401b-9f79-7b6c65b902f0",
+                            Id = "4af3a4ab-2da2-46e5-9158-c8a1cbc7dac8",
                             ConcurrencyStamp = "1",
                             Name = "User",
                             NormalizedName = "User"
                         },
                         new
                         {
-                            Id = "82e255f0-81db-48cb-b3bf-a7e2dc791485",
+                            Id = "fb86a0dc-cf03-4c9f-90c5-1b98fffae8b3",
                             ConcurrencyStamp = "2",
                             Name = "Admin",
                             NormalizedName = "Admin"
@@ -246,6 +246,9 @@ namespace WebAppProject.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Creation_date")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatorUsername")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

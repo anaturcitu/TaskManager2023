@@ -26,5 +26,8 @@ namespace WebAppProject.Services
         {
             return _repository.GetAllProjects();
         }
+        public List<Project> GetUserProjects(string username) {
+            return _repository.GetUserProjects(username);
+        }
     }
 }

@@ -31,6 +31,7 @@ namespace WebAppProject.Controllers
             
             p.Id = Guid.NewGuid();
             p.Creation_date = DateTime.Now.ToString();
+            p.CreatorUsername = user.UserName;
             _projectService.CreateNewProject(p);
 
             UserProject userProject = new UserProject();
@@ -41,6 +42,21 @@ namespace WebAppProject.Controllers
 
             _projectService.AddUserToProject(userProject);
             return Ok(p);
+        }
+        [HttpGet("GetUserProjects")]
+        public async Task<IActionResult> GetUserProjects()
+        {
+            var email = User.FindFirst(ClaimTypes.Email)?.Value; // gaseste emailul userului care este autentificat
+            var user = await _userManager.FindByEmailAsync(email); // gaseste userul care are acel email
+
+            var projectList = _projectService.GetUserProjects(user.UserName);
+            return Ok(projectList);
+        }
+        [HttpPost("AssignNewMember")]
+        public async Task<IActionResult> AssignNewMember()
+        {
+            
+            return Ok();
         }
     }
 }

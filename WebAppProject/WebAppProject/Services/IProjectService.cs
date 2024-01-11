@@ -8,5 +8,6 @@ namespace WebAppProject.Services
         public void CreateNewTask(ProjectTask t);
         public void AddUserToProject(UserProject up);
         public List<Project> GetAllProjects();
+        public List<Project> GetUserProjects(string username);
     }
 }

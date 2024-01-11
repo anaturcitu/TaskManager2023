@@ -1,4 +1,7 @@
-﻿namespace WebAppProject.Models.Entities
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebAppProject.Models.Entities
 {
     public class Project
     {
@@ -7,5 +10,6 @@
         public string Description { get; set; }
         public string? Creation_date { get; set; }
         public List<ProjectTask>? Tasks { get; set; }
+        public string ?CreatorUsername { get; set; }
     }
 }

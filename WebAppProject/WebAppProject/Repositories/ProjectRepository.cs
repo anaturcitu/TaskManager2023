@@ -31,5 +31,10 @@ namespace WebAppProject.Repositories
         { 
             return _dbContext.Projects.ToList();
         }
+        public List<Project> GetUserProjects(string username)
+        {
+            var projects = _dbContext.Projects.Where(p => p.CreatorUsername == username).ToList();
+            return projects;
+        }
     }
 }

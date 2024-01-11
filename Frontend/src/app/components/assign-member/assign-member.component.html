@@ -18,9 +18,29 @@
         </div>
         <div class="add_by_email" id="add_by_email">
             <h1>Enter user email</h1>
+            <form [formGroup]="addByEmailForm">
+                <input formControlName="Email" type="email" placeholder="Email" required=""/>
+                <br/>
+                <select formControlName="ProjectName" name="projectName" id="projectName">
+                    <option value="">Choose project</option>
+                    <option *ngFor="let project of projects" [value]="project.name">{{project.name}}</option>
+                </select>
+                <br/>
+                <button (click)="onCreateByEmail()" type="submit">Add user</button>
+            </form>
         </div>
         <div class="add_by_username" id="add_by_username">
             <h1>Enter username</h1>
+            <form [formGroup]="addByUsernameForm">
+                <input formControlName="Username" type="text" placeholder="Username" required=""/>
+                <br/>
+                <select formControlName="ProjectName" name="projectName" id="projectName">
+                    <option value="">Choose project</option>
+                    <option *ngFor="let project of projects" [value]="project.name">{{project.name}}</option>
+                </select>
+                <br/>
+                <button (click)="onCreateByUsername()" type="submit">Add user</button>
+            </form>
         </div>
     </div>
 </body>
