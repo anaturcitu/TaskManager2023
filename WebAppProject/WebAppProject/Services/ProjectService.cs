@@ -29,5 +29,10 @@ namespace WebAppProject.Services
         public List<Project> GetUserProjects(string username) {
             return _repository.GetUserProjects(username);
         }
+        public Project GetProjectByName(string projectName)
+        {
+            return _repository.GetProjectByName(projectName);
+        }
+
     }
 }

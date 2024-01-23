@@ -23,7 +23,6 @@ export class SignupComponent implements OnInit{
   }
   onSignup(){
     if(this.signupForm.valid){
-      console.log(this.signupForm.value);
       this.authService.signup(this.signupForm.value)
       .subscribe({
         next:(res) => {

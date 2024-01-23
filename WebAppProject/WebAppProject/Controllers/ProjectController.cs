@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using WebAppProject.DTO;
 using WebAppProject.Models.Entities;
 using WebAppProject.Services;
 
@@ -52,10 +53,18 @@ namespace WebAppProject.Controllers
             var projectList = _projectService.GetUserProjects(user.UserName);
             return Ok(projectList);
         }
-        [HttpPost("AssignNewMember")]
-        public async Task<IActionResult> AssignNewMember()
+        [HttpPost("AssignNewMember")] // ASIGN MEMBER TO PROJECT
+        public async Task<IActionResult> AssignNewMember(AddUserToProjectDto addUserToProjectDto)
         {
-            
+            var project = _projectService.GetProjectByName(addUserToProjectDto.ProjectName);
+            if (addUserToProjectDto.Email != null)
+            {
+                var user = await _userManager.FindByEmailAsync(addUserToProjectDto.Email); // gaseste userul care are acel email
+            }
+            if (addUserToProjectDto.UserName != null)
+            {
+                var user = await _userManager.FindByNameAsync(addUserToProjectDto.UserName); // gaseste userul care are acel email
+            }
             return Ok();
         }
     }

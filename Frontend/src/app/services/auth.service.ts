@@ -18,7 +18,7 @@ export class AuthService {
     return this.http.post<any>(`${this.baseUrl}Login`,loginUser);
   }
   signup(registerUser:any){
-    return this.http.post<any>(`${this.baseUrl}Register?role=User`,registerUser);
+    return this.http.post<any>(`${this.baseUrl}Register?role=User`,registerUser); // apeleaza metoda Register din authentication controller din server
   }
 
   storeToken(tokenValue: string){
