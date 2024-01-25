@@ -18,6 +18,7 @@ import { AssignMemberComponent } from './components/assign-member/assign-member.
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TokenInterceptor } from './token.interceptor';
+import { CreateTaskComponent } from './components/create-task/create-task.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TokenInterceptor } from './token.interceptor';
     CreateProjectComponent,
     AssignMemberComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,

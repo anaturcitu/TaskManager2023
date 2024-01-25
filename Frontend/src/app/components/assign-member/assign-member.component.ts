@@ -41,12 +41,11 @@ export class AssignMemberComponent {
       this.projectService.assignMemberToProject(this.addByEmailForm.value)
       .subscribe({
         next:(res) => {
-          console.log(res);
           this.toast.success({detail:"Success", summary:"You added the user to project!", duration:4000});
         },
         error:(err)=>{
           console.log(err?.error.message);
-          this.toast.error({detail:"Error", summary:"Something went wrong!", duration:4000});
+          this.toast.error({detail:"Error", summary:"Invalid user!", duration:4000});
         }
       });
     }
@@ -61,12 +60,11 @@ export class AssignMemberComponent {
       this.projectService.assignMemberToProject(this.addByUsernameForm.value)
       .subscribe({
         next:(res) => {
-          console.log(res);
           this.toast.success({detail:"Success", summary:"You added the user to project!", duration:4000});
         },
         error:(err)=>{
           console.log(err?.error.message);
-          this.toast.error({detail:"Error", summary:"Something went wrong!", duration:4000});
+          this.toast.error({detail:"Error", summary:"Invalid user!", duration:4000});
         }
       });
     }

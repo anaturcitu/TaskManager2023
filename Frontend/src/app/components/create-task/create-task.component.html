@@ -1,0 +1,63 @@
+<div class="navbar">
+    <div class="navcomponent">
+        <img (click)="home()" src="assets\home.png" alt="">
+    </div>
+    <div class="navcomponent">
+        <img (click)="notification()" src="assets\notification.png" alt="">
+    </div>
+    <div class="navcomponent">
+        <img (click)="logout()" src="assets\logout.png" alt="">
+    </div>
+</div>
+
+<div class="user_projects">
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Creation date</th>
+          <th>Creator username</th>
+          <th>Add task</th>
+        </tr>
+        <tr *ngFor="let project of projects">
+            <td>{{project.name}}</td>
+            <td>{{project.description}}</td>
+            <td>{{project.creation_date}}</td>
+            <td>{{project.creatorUsername}}</td>
+            <td style="font-size: 35px; color: green; cursor: pointer;">+</td>
+        </tr>
+    </table>
+    <div class="add_task">
+        <h1>Project tasks</h1>
+        <table class="task_table">
+            <tr>
+              <th class="task_header">Nume</th>
+              <th class="task_header">Descriere</th>
+              <th class="task_header">Creation date</th>
+            </tr>
+            <tr *ngFor="let project of projects">
+                <td class="task_header">{{project.name}}</td>
+                <td class="task_header">{{project.description}}</td>
+                <td class="task_header">{{project.creation_date}}</td>
+            </tr>
+        </table>
+        <h1>Create new task</h1>
+        <form [formGroup]="addTaskForm">
+            <input formControlName="Name" type="text" placeholder="Task name" required=""/>
+            <br/>
+            <input formControlName="Description" type="text" placeholder="Description" required=""/>
+            <br/>
+            <input formControlName="End_date" placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="End date" required=""/>
+            <br/>
+            <select formControlName="Priority" name="Priority" id="Priority">
+                <option value="">Choose priority</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <br/>
+            <button (click)="onCreateTask()" type="submit">Create task</button>
+        </form>
+    </div>
+</div>

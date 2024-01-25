@@ -56,16 +56,52 @@ namespace WebAppProject.Controllers
         [HttpPost("AssignNewMember")] // ASIGN MEMBER TO PROJECT
         public async Task<IActionResult> AssignNewMember(AddUserToProjectDto addUserToProjectDto)
         {
+            bool user_exists = true;
             var project = _projectService.GetProjectByName(addUserToProjectDto.ProjectName);
             if (addUserToProjectDto.Email != null)
             {
                 var user = await _userManager.FindByEmailAsync(addUserToProjectDto.Email); // gaseste userul care are acel email
+                if(user == null)
+                {
+                    user_exists = false;
+                }
+                else
+                {
+                    UserProject userProject = new UserProject();
+                    userProject.Project = project;
+                    userProject.User = user;
+                    userProject.UserId = user.Id;
+                    userProject.ProjectId = project.Id;
+                    _projectService.AddUserToProject(userProject);
+                }
             }
             if (addUserToProjectDto.UserName != null)
             {
                 var user = await _userManager.FindByNameAsync(addUserToProjectDto.UserName); // gaseste userul care are acel email
+                if (user == null)
+                {
+                    user_exists = false;
+                }
+                else
+                {
+                    UserProject userProject = new UserProject();
+                    userProject.Project = project;
+                    userProject.User = user;
+                    userProject.UserId = user.Id;
+                    userProject.ProjectId = project.Id;
+                    _projectService.AddUserToProject(userProject);
+                }
             }
-            return Ok();
+            if(user_exists == true)
+            {
+                return StatusCode(StatusCodes.Status201Created,
+             new Models.Response.Response { Status = "Succes", Message = "User added to project!" });
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status404NotFound,
+             new Models.Response.Response { Status = "Error", Message = "User doesn't exist!" });
+            }
         }
     }
 }

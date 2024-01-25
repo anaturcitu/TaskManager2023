@@ -22,11 +22,6 @@ namespace WebAppProject.Repositories
             _dbContext.ProjectTasks.Add(t);
             _dbContext.SaveChanges();
         }
-        public void AddUserToProject(UserProject up)
-        {
-            _dbContext.UserProjects.Add(up);
-            _dbContext.SaveChanges();
-        }
         public List<Project> GetAllProjects()
         { 
             return _dbContext.Projects.ToList();
@@ -40,6 +35,11 @@ namespace WebAppProject.Repositories
         {
             var project = _dbContext.Projects.SingleOrDefault(p => p.Name == projectName);
             return project;
+        }
+        public void AddUserToProject(UserProject userProject)
+        {
+            _dbContext.UserProjects.Add(userProject);
+            _dbContext.SaveChanges();
         }
     }
 }

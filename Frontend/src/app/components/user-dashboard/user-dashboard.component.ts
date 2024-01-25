@@ -29,6 +29,10 @@ export class UserDashboardComponent {
     this.router.navigate(['create-project']);
   }
 
+  create_task() {
+    this.router.navigate(['create-task']);
+  }
+
   assign_member() {
     this.router.navigate(['assign-member']);
   }
