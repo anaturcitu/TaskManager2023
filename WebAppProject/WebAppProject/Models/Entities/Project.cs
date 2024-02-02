@@ -9,7 +9,7 @@ namespace WebAppProject.Models.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public string? Creation_date { get; set; }
-        public List<ProjectTask>? Tasks { get; set; }
+        public List<ProjectTask>? Tasks = new List<ProjectTask>();
         public string ?CreatorUsername { get; set; }
     }
 }

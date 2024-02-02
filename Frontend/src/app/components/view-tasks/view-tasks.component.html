@@ -1,0 +1,31 @@
+<div class="navbar">
+    <div class="navcomponent">
+        <img (click)="home()" src="assets\home.png" alt="">
+    </div>
+    <div class="navcomponent">
+        <img (click)="notification()" src="assets\notification.png" alt="">
+    </div>
+    <div class="navcomponent">
+        <img (click)="logout()" src="assets\logout.png" alt="">
+    </div>
+</div>
+
+<div class="user_task">
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Creation date</th>
+          <th>End date</th>
+          <th>Priority</th>
+        </tr>
+        <tr *ngFor="let task of userTasks">
+            <td>{{task.name}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.creation_date}}</td>
+            <td>{{task.end_date}}</td>
+            <td>{{ task.priority === 0 ? 'Low' : (task.priority === 1 ? 'Medium' : 'High') }}</td>
+        </tr>
+    </table>
+    
+</div>

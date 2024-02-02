@@ -1,4 +1,6 @@
-﻿namespace WebAppProject.Models.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebAppProject.Models.Entities
 {
     public enum Priority
     {
@@ -14,5 +16,8 @@
         public string Creation_date { get; set; }
         public string End_date { get; set; }
         public Priority Priority { get; set; }
+        public Guid ProjectId { get; set; }
+        [ForeignKey("ProjectId")]
+        public Project? Project { get; set; }
     }
 }

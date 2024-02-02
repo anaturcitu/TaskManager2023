@@ -23,13 +23,27 @@ export class CreateTaskComponent {
     this.addTaskForm=this.fb.group({
       Name: ['',Validators.required],
       Description: ['',Validators.required],
-      EndDate: ['',Validators.required],
+      End_date: ['',Validators.required],
       Priority: ['',Validators.required]
     });
   }
 
-  onCreateTask() {
-    
+  onCreateTask(project_id:any) {
+    if(this.addTaskForm.valid){
+      this.projectService.createNewTask(this.addTaskForm.value, project_id)
+      .subscribe({
+        next:(res) => {
+          this.toast.success({detail:"Success", summary:"You added a new task!", duration:4000});
+        },
+        error:(err)=>{
+          console.log(err?.error.message);
+          this.toast.error({detail:"Error", summary:"Invalid task data!", duration:4000});
+        }
+      });
+    }
+    else{
+      console.log("Invalid data from user");
+    }
   }
 
   home() {
@@ -43,5 +57,19 @@ export class CreateTaskComponent {
 
   notification() {
     this.router.navigate(['notification']);
+  }
+
+  showAddTask(project_id:any){
+    const element = document.getElementById(project_id);
+    if (element){
+      element.style.display = 'block';
+    }
+  }
+
+  closeShowAddTask(project_id:any){
+    const element = document.getElementById(project_id);
+    if (element){
+      element.style.display = 'none';
+    }
   }
 }

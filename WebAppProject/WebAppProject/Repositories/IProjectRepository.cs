@@ -10,5 +10,7 @@ namespace WebAppProject.Repositories
         public List<Project> GetUserProjects(string username);
         public Project GetProjectByName(string projectName);
         public void AddUserToProject(UserProject userProject);
+        public Project GetProjectById(Guid id);
+        public List<ProjectTask> GetAllUserTasks(string user_id);
     }
 }

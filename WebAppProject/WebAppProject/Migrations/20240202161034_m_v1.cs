@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebAppProject.Migrations
 {
     /// <inheritdoc />
-    public partial class create_database : Migration
+    public partial class m_v1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -60,7 +60,7 @@ namespace WebAppProject.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Creation_date = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatorUsername = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    CreatorUsername = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -183,7 +183,7 @@ namespace WebAppProject.Migrations
                     Creation_date = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     End_date = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Priority = table.Column<int>(type: "int", nullable: false),
-                    ProjectId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    ProjectId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -192,7 +192,8 @@ namespace WebAppProject.Migrations
                         name: "FK_ProjectTasks_Projects_ProjectId",
                         column: x => x.ProjectId,
                         principalTable: "Projects",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -225,8 +226,8 @@ namespace WebAppProject.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4af3a4ab-2da2-46e5-9158-c8a1cbc7dac8", "1", "User", "User" },
-                    { "fb86a0dc-cf03-4c9f-90c5-1b98fffae8b3", "2", "Admin", "Admin" }
+                    { "217e96fb-67e8-40bc-b5a4-c7e5b59e762d", "1", "User", "User" },
+                    { "baa660e8-8032-486b-84ee-752bc69b3699", "2", "Admin", "Admin" }
                 });
 
             migrationBuilder.CreateIndex(

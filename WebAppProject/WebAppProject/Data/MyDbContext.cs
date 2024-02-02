@@ -17,6 +17,10 @@ namespace WebAppProject.Data
 
         protected override void OnModelCreating(ModelBuilder builder) // metoda care se apeleaza la crearea bazei de date
         {
+            builder.Entity<ProjectTask>()
+                .HasOne(t => t.Project)
+                .WithMany(p => p.Tasks)
+                .HasForeignKey(t => t.ProjectId);
             base.OnModelCreating(builder);
             createRoles(builder);
         }

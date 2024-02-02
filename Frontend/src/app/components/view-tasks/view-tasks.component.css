@@ -8,7 +8,6 @@
     flex-direction: row;
     justify-content: space-evenly;
     border-radius: 7px;
-    margin-top: 10px;
 }
 
 .navcomponent img {
@@ -24,43 +23,10 @@
     font-family: 'Roboto Mono', monospace;
 }
 
-.user_menu {
-    width: 65%;
-    margin: auto;
-    margin-top: 120px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.user_option {
-    width: 200px;
-    height: 190px;
-    border-radius: 15px;
-    cursor: pointer;
-    background-color: lightgreen;
-    margin-bottom: 60px;
-}
-
-.option_image img {
-    width: 80px;
-    height: 80px;
-    margin-top: 15px;
-    margin-left: 63px;
-}
-
-.option_info h1 {
-    margin-top: 25px;
-    font-size: 21px;
-    text-align: center;
-    color: white;
-}
-
 table{
     height: auto;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 100px;
     margin-bottom: 100px;
     border-left: 3px solid lightgreen;
     border-right: 3px solid lightgreen;
@@ -79,13 +45,4 @@ td{
     border-bottom: 3px solid lightgreen;
     text-align: center;
     font-size: 18px;
-}
-
-h2{
-    text-align: center;
-}
-
-h3{
-    text-align: center;
-    margin-top: 200px;
 }

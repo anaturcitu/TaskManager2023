@@ -19,6 +19,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TokenInterceptor } from './token.interceptor';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
+import { ViewTasksComponent } from './components/view-tasks/view-tasks.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CreateTaskComponent } from './components/create-task/create-task.compon
     AssignMemberComponent,
     AboutComponent,
     ContactComponent,
-    CreateTaskComponent
+    CreateTaskComponent,
+    ViewTasksComponent
   ],
   imports: [
     BrowserModule,

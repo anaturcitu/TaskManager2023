@@ -12,6 +12,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
+import { ViewTasksComponent } from './components/view-tasks/view-tasks.component';
 
 const routes: Routes = [
   {path: '',redirectTo:'/home',pathMatch:'full'},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'about', component: AboutComponent},
   {path:'contact', component: ContactComponent},
   {path:'create-task', component: CreateTaskComponent},
+  {path:'view-tasks', component: ViewTasksComponent},
 ];
 
 @NgModule({

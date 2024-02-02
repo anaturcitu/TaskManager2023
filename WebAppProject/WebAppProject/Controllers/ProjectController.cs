@@ -103,5 +103,31 @@ namespace WebAppProject.Controllers
              new Models.Response.Response { Status = "Error", Message = "User doesn't exist!" });
             }
         }
+
+        [HttpPost("CreateNewTask")]
+        public IActionResult CreateNewTask(AddNewTaskDto addNewTaskDto)
+        {
+            var project = _projectService.GetProjectById(addNewTaskDto.project_id);
+            ProjectTask projectTask = new ProjectTask();
+            projectTask.Priority = addNewTaskDto.Priority;
+            projectTask.Creation_date = DateTime.Now.ToString();
+            projectTask.End_date = addNewTaskDto.End_date;
+            projectTask.Name = addNewTaskDto.Name;
+            projectTask.Description = addNewTaskDto.Description;
+            projectTask.Project = project;
+            projectTask.ProjectId = project.Id;
+            _projectService.CreateNewTask(projectTask);
+            return Ok();
+        }
+
+        [HttpGet("GetUserTasks")]
+        public async Task<IActionResult> GetUserTasks()
+        {
+            var email = User.FindFirst(ClaimTypes.Email)?.Value; // gaseste emailul userului care este autentificat
+            var user = await _userManager.FindByEmailAsync(email); // gaseste userul care are acel email
+
+            var taskList = _projectService.GetAllUserTasks(user.Id);
+            return Ok(taskList);
+        }
     }
 }

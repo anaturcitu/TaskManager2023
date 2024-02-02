@@ -29,7 +29,7 @@
     </div>
     <div class="user_option">
         <div class="option_image">
-            <img (click)="notification()" src="assets\task.png" alt="">
+            <img (click)="view_tasks()" src="assets\task.png" alt="">
         </div>
         <div class="option_info">
             <h1>View tasks</h1>
@@ -46,26 +46,21 @@
 </div>
 
 <div class="my_projects">
-
-    <table>
+    <table *ngIf="projects.length>0; else noData">
         <tr>
-          <th>Project</th>
+          <th>Name</th>
+          <th>Description</th>
           <th>Creation date</th>
-          <th>Number of members</th>
-          <th>Number of tasks</th>
+          <th>Creator username</th>
         </tr>
-        <tr>
-            <td>Implement task management aplication</td>
-            <td>12/16/2023</td>
-            <td>5</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>Create new aplication for users</td>
-            <td>12/16/2023</td>
-            <td>10</td>
-            <td>7</td>
+        <tr *ngFor="let project of projects">
+            <td>{{project.name}}</td>
+            <td>{{project.description}}</td>
+            <td>{{project.creation_date}}</td>
+            <td>{{project.creatorUsername}}</td>
         </tr>
     </table>
-
+    <ng-template #noData>
+        <h3>You have not created any projects</h3>
+    </ng-template>
 </div>

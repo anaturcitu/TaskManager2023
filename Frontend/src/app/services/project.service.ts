@@ -21,4 +21,23 @@ export class ProjectService {
     console.log(newUser);
     return this.http.post<any>(`${this.baseUrl}AssignNewMember`,newUser);
   }
+
+  createNewTask(newTask:any, project_id:any){
+    if(newTask.Priority=="low"){
+      newTask.Priority=0;
+    }
+    else if(newTask.Priority=="medium"){
+      newTask.Priority=1;
+    }
+    else if(newTask.Priority=="high"){
+      newTask.Priority=2;
+    }
+    const param={...newTask, project_id}; // incapsulam cele 2 obiecte intr-unul singur
+    console.log(param);
+    return this.http.post<any>(`${this.baseUrl}CreateNewTask`,param);
+  }
+
+  getUserTasks(){
+    return this.http.get<any>(`${this.baseUrl}GetUserTasks`);
+  }
 }

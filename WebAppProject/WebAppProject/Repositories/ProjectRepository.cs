@@ -41,5 +41,23 @@ namespace WebAppProject.Repositories
             _dbContext.UserProjects.Add(userProject);
             _dbContext.SaveChanges();
         }
+
+        public Project GetProjectById(Guid id)
+        {
+            return _dbContext.Projects.SingleOrDefault(p => p.Id == id);
+        }
+
+        public List<ProjectTask> GetAllUserTasks(string user_id)
+        {
+            var userProjects = _dbContext.UserProjects // obtinem toate proiectele in care este asociat utilizatorul
+                            .Where(up=>up.UserId == user_id)
+                            .Include(up=>up.Project)
+                            .ToList();
+            var projectIds = userProjects.Select(up=>up.ProjectId).ToList(); // luam id-urile proiectelor
+            var userTasks = _dbContext.ProjectTasks // luam toate task-urile utilizatorului
+                .Where(pt=>projectIds.Contains(pt.ProjectId))
+                .ToList();
+            return userTasks;
+        }
     }
 }

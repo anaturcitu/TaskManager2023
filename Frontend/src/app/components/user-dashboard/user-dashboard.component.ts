@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -8,8 +9,16 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent {
-  constructor(private router: Router, private auth: AuthService){
+  constructor(private projectService: ProjectService, private router: Router, private auth: AuthService){
 
+  }
+
+  public projects: any = [];
+  ngOnInit(){
+    this.projectService.getUserProjects()
+    .subscribe(res => {
+      this.projects = res;
+    })
   }
 
   home() {
@@ -35,5 +44,9 @@ export class UserDashboardComponent {
 
   assign_member() {
     this.router.navigate(['assign-member']);
+  }
+
+  view_tasks() {
+    this.router.navigate(['view-tasks']);
   }
 }

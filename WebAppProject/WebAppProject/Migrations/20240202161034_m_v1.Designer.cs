@@ -12,8 +12,8 @@ using WebAppProject.Data;
 namespace WebAppProject.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20240111145411_create_database")]
-    partial class create_database
+    [Migration("20240202161034_m_v1")]
+    partial class m_v1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,14 +54,14 @@ namespace WebAppProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4af3a4ab-2da2-46e5-9158-c8a1cbc7dac8",
+                            Id = "217e96fb-67e8-40bc-b5a4-c7e5b59e762d",
                             ConcurrencyStamp = "1",
                             Name = "User",
                             NormalizedName = "User"
                         },
                         new
                         {
-                            Id = "fb86a0dc-cf03-4c9f-90c5-1b98fffae8b3",
+                            Id = "baa660e8-8032-486b-84ee-752bc69b3699",
                             ConcurrencyStamp = "2",
                             Name = "Admin",
                             NormalizedName = "Admin"
@@ -249,7 +249,6 @@ namespace WebAppProject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatorUsername")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
@@ -290,7 +289,7 @@ namespace WebAppProject.Migrations
                     b.Property<int>("Priority")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("ProjectId")
+                    b.Property<Guid>("ProjectId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -375,9 +374,13 @@ namespace WebAppProject.Migrations
 
             modelBuilder.Entity("WebAppProject.Models.Entities.ProjectTask", b =>
                 {
-                    b.HasOne("WebAppProject.Models.Entities.Project", null)
+                    b.HasOne("WebAppProject.Models.Entities.Project", "Project")
                         .WithMany("Tasks")
-                        .HasForeignKey("ProjectId");
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
                 });
 
             modelBuilder.Entity("WebAppProject.Models.Entities.UserProject", b =>

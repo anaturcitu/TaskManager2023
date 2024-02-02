@@ -3,7 +3,7 @@ using WebAppProject.Repositories;
 
 namespace WebAppProject.Services
 {
-    public class ProjectService: IProjectService
+    public class ProjectService : IProjectService
     {
         private readonly IProjectRepository _repository;
         public ProjectService(IProjectRepository repository)
@@ -26,7 +26,8 @@ namespace WebAppProject.Services
         {
             return _repository.GetAllProjects();
         }
-        public List<Project> GetUserProjects(string username) {
+        public List<Project> GetUserProjects(string username)
+        {
             return _repository.GetUserProjects(username);
         }
         public Project GetProjectByName(string projectName)
@@ -34,5 +35,14 @@ namespace WebAppProject.Services
             return _repository.GetProjectByName(projectName);
         }
 
+        public Project GetProjectById(Guid id)
+        {
+            return _repository.GetProjectById(id);
+        }
+
+        public List<ProjectTask> GetAllUserTasks(string user_id)
+        {
+            return _repository.GetAllUserTasks(user_id);
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace WebAppProject.Services
         public List<Project> GetAllProjects();
         public List<Project> GetUserProjects(string username);
         public Project GetProjectByName(string projectName);
-
+        public Project GetProjectById(Guid id);
+        public List<ProjectTask> GetAllUserTasks(string user_id);
     }
 }
