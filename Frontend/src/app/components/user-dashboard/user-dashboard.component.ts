@@ -14,10 +14,10 @@ export class UserDashboardComponent {
   }
 
   public projects: any = [];
-  ngOnInit(){
+  ngOnInit(){ // prima functie care se apeleaza cand se incarca pagina
     this.projectService.getUserProjects()
-    .subscribe(res => {
-      this.projects = res;
+    .subscribe(res => { // lista cu proiectele utilizatorului
+      this.projects = res; // se pune in tabelul din html
     })
   }
 

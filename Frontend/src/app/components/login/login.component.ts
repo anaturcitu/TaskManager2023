@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit{
     if(this.loginForm.valid){
       this.authService.login(this.loginForm.value)
       .subscribe({
-        next:(res) => {
+        next:(res) => { // res contine token, data de expirare a token-ului, rol, user-id
           const helper = new JwtHelperService();
 
           const decodedToken = helper.decodeToken(res.token);

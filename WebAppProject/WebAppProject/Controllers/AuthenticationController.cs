@@ -67,7 +67,7 @@ namespace WebAppProject.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginUser loginUser)
         {
-            var user = await _userManager.FindByEmailAsync(loginUser.Email);
+            var user = await _userManager.FindByEmailAsync(loginUser.Email); // verific daca exista user-ul
             if(user != null && await _userManager.CheckPasswordAsync(user, loginUser.Password))
             {
                 var authClaims = new List<Claim>
@@ -75,7 +75,7 @@ namespace WebAppProject.Controllers
                     new Claim(ClaimTypes.Email, user.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 };
-                var userRoles = await _userManager.GetRolesAsync(user);
+                var userRoles = await _userManager.GetRolesAsync(user); // iau rolurile user-ului
                 foreach (var role in userRoles)
                 {
                     authClaims.Add(new Claim(ClaimTypes.Role, role));
@@ -88,7 +88,7 @@ namespace WebAppProject.Controllers
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(JwtToken),
                     expiration = JwtToken.ValidTo,
-                    role = userRoles[0],
+                    role = userRoles[0], // ne asumam ca user-ul are un singur rol
                     user_id  = user.Id
                 });
             }
@@ -97,7 +97,7 @@ namespace WebAppProject.Controllers
             
         }
 
-        private JwtSecurityToken GetToken(List<Claim> authClaims)
+        private JwtSecurityToken GetToken(List<Claim> authClaims) // este creat token-ul in functie de rolurile user-ului
         {
             var authSigninKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 
